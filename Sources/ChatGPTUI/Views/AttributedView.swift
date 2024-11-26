@@ -15,15 +15,15 @@ public struct AttributedView: View {
                 if parsed.isCodeBlock {
                     CodeBlockView(parserResult: parsed)
                         .padding(.bottom)
-                        .onAppear {
-                            print("-----CodeBlockView Parsed: \n\(parsed.isCodeBlock)\n\(String(describing: parsed.codeBlockLanguage))\n\(parsed.attributedString)")
-                        }
+//                        .onAppear {
+//                            print("-----CodeBlockView Parsed: \n\(parsed.isCodeBlock)\n\(String(describing: parsed.codeBlockLanguage))\n\(parsed.attributedString)")
+//                        }
                 } else {
                     Text(parsed.attributedString)
                         .textSelection(.enabled)
-                        .onAppear {
-                            print("-----regular Parsed: \n\(parsed.isCodeBlock)\n\(String(describing: parsed.codeBlockLanguage))\n\(parsed.attributedString)")
-                        }
+//                        .onAppear {
+//                            print("-----regular Parsed: \n\(parsed.isCodeBlock)\n\(String(describing: parsed.codeBlockLanguage))\n\(parsed.attributedString)")
+//                        }
                 }
             }
         }

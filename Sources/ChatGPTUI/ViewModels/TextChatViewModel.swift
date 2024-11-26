@@ -66,6 +66,7 @@ open class TextChatViewModel<CustomContent: View> {
     
     @MainActor
     open func send(text: String) async {
+        print("stream-full")
         isPrompting = true
         var messageRow = MessageRow<CustomContent>(
             isPrompting: true,
@@ -94,9 +95,10 @@ open class TextChatViewModel<CustomContent: View> {
             let stream = try await api.sendMessageStream(text: text, model: model, systemText: systemText, temperature: temperature)
             for try await text in stream {
                 streamText += text
+                print("text in stream: \(text)")
                 if renderAsMarkdown {
                     currentTextCount += text.count
-                    
+
                     if currentTextCount >= parserThresholdTextCount || text.contains("```") {
                         currentOutput = await parsingTask.parse(text: streamText)
                         try Task.checkCancellation()
@@ -155,6 +157,7 @@ open class TextChatViewModel<CustomContent: View> {
     
     @MainActor
     open func sendWithoutStream(text: String) async {
+        print("stream-less")
         isPrompting = true
         var messageRow = MessageRow<CustomContent>(
             isPrompting: true,
