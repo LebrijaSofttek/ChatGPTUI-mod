@@ -15,7 +15,7 @@ struct CodeBlockView: View {
             header
                 .padding(.horizontal)
                 .padding(.vertical, 8)
-                .background(Color(red: 9/255, green: 49/255, blue: 69/255))
+                .background(Color.gray)
             
             ScrollView(.horizontal, showsIndicators: true) {
                 Text(parserResult.attributedString)
@@ -23,7 +23,7 @@ struct CodeBlockView: View {
                     .textSelection(.enabled)
             }
         }
-        .background(HighlighterConstants.color)
+        .background(.background)
         .cornerRadius(8)
     }
     
