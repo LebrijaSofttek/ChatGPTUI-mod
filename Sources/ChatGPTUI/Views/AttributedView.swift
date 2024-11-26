@@ -22,7 +22,7 @@ public struct AttributedView: View {
                     Text(parsed.attributedString)
                         .textSelection(.enabled)
                         .onAppear {
-                            print("-----CodeBlockView Parsed: \n\(parsed.isCodeBlock)\n\(String(describing: parsed.codeBlockLanguage))\n\(parsed.attributedString)")
+                            print("-----regular Parsed: \n\(parsed.isCodeBlock)\n\(String(describing: parsed.codeBlockLanguage))\n\(parsed.attributedString)")
                         }
                 }
             }
